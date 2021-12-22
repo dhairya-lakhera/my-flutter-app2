@@ -16,12 +16,27 @@ class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Flutter App'),
-      ),
-      body: Center(
-        child: Text('Widget Playground!'),
-      ),
-    );
+        appBar: AppBar(
+          title: Text('Flutter App'),
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              width: double.infinity,
+              child: Card(
+                child: Text('First Card'),
+                elevation: 5,
+                color: Colors.blue,
+              ),
+            ),
+            Card(
+              child: Text('Second Card'),
+              elevation: 5,
+              color: Colors.red,
+            ),
+          ],
+        ));
   }
 }
