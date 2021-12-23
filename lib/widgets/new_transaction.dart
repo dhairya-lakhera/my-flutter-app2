@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 class NewTransaction extends StatelessWidget {
   final Function addTx;
-  final titleInputContoller = TextEditingController();
-  final amountInputController = TextEditingController();
+  final titleController = TextEditingController();
+  final amountController = TextEditingController();
 
   NewTransaction(this.addTx);
 
@@ -15,24 +15,29 @@ class NewTransaction extends StatelessWidget {
         padding: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
-          children: [
+          children: <Widget>[
             TextField(
               decoration: InputDecoration(labelText: 'Title'),
-              controller: titleInputContoller,
+              controller: titleController,
+              // onChanged: (val) {
+              //   titleInput = val;
+              // },
             ),
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
-              controller: amountInputController,
+              controller: amountController,
+              // onChanged: (val) => amountInput = val,
             ),
             FlatButton(
-                child: Text('Add transaction'),
-                textColor: Colors.purple,
-                onPressed: () {
-                  addTx(
-                    titleInputContoller.text,
-                    double.parse(amountInputController.text),
-                  );
-                }),
+              child: Text('Add Transaction'),
+              textColor: Colors.purple,
+              onPressed: () {
+                addTx(
+                  titleController.text,
+                  double.parse(amountController.text),
+                );
+              },
+            ),
           ],
         ),
       ),

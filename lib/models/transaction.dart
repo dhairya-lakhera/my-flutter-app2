@@ -4,7 +4,7 @@ class Transaction {
   final String id;
   final String title;
   final double amount;
-  DateTime date;
+  final DateTime date;
 
   Transaction({
     @required this.id,
