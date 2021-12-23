@@ -15,8 +15,6 @@ class NewTransaction extends StatelessWidget {
       return;
     }
 
-    print('aa' + enteredTitle);
-
     addTx(
       enteredTitle,
       enteredAmount,
@@ -36,7 +34,6 @@ class NewTransaction extends StatelessWidget {
               decoration: InputDecoration(labelText: 'Title'),
               controller: titleController,
               onSubmitted: (_) => submitData(),
-
               // onChanged: (val) {
               //   titleInput = val;
               // },
@@ -44,8 +41,9 @@ class NewTransaction extends StatelessWidget {
             TextField(
               decoration: InputDecoration(labelText: 'Amount'),
               controller: amountController,
-              keyboardType: TextInputType.numberWithOptions(decimal: true),
+              keyboardType: TextInputType.number,
               onSubmitted: (_) => submitData(),
+              // onChanged: (val) => amountInput = val,
             ),
             FlatButton(
               child: Text('Add Transaction'),
