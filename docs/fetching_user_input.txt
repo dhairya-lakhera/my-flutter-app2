@@ -1,0 +1,20 @@
+Method 1 - storing onChanged
+
+String titleInput;
+TextField(
+    decoration: InputDecoration(labelText: 'Title'),
+    onChanged: (value) => titleInput = value,
+)
+
+---------------
+
+Method 2 - Automatically storing using controller 
+
+final titleInputContoller = TextEditingController();
+TextField(
+    decoration: InputDecoration(labelText: 'Title'),
+    controller: titleInputContoller,
+)
+
+//Accessing value of titleInputContoller 
+titleInputContoller.text

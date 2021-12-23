@@ -31,14 +31,17 @@ class MyHomePage extends StatelessWidget {
     ),
   ];
 
+  final titleInputContoller = TextEditingController();
+  final amountInputController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          title: Text('Flutter App'),
+          title: Text('Personal Expenses App'),
         ),
         body: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          //mainAxisAlignment: MainAxisAlignment.spaceAround,
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Container(
@@ -47,6 +50,32 @@ class MyHomePage extends StatelessWidget {
                 child: Text('First Card'),
                 elevation: 5,
                 color: Colors.blue,
+              ),
+            ),
+            Card(
+              elevation: 5,
+              child: Container(
+                padding: EdgeInsets.all(10),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Title'),
+                      controller: titleInputContoller,
+                    ),
+                    TextField(
+                      decoration: InputDecoration(labelText: 'Amount'),
+                      controller: amountInputController,
+                    ),
+                    FlatButton(
+                        child: Text('Add transaction'),
+                        textColor: Colors.purple,
+                        onPressed: () {
+                          print('title is ${titleInputContoller.text}');
+                          print('amount is ${amountInputController.text}');
+                        }),
+                  ],
+                ),
               ),
             ),
             Column(
